@@ -14,6 +14,7 @@ export type LinkItem = {
   label: string;
   value: string;
   href: string;
+  openInNewTab?: boolean;
 };
 
 export type HeroContent = {
@@ -293,7 +294,8 @@ export const portfolioContent: PortfolioContent = {
     primaryCta: {
       label: "查看作品",
       value: "Projects",
-      href: "#projects",
+      href: "/projects",
+      openInNewTab: true,
     },
     secondaryCta: {
       label: "聯絡我",

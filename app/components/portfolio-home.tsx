@@ -72,7 +72,14 @@ export function PortfolioHome() {
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href={hero.primaryCta.href} className="button-primary">
+              <Link
+                href={hero.primaryCta.href}
+                target={hero.primaryCta.openInNewTab ? "_blank" : undefined}
+                rel={
+                  hero.primaryCta.openInNewTab ? "noopener noreferrer" : undefined
+                }
+                className="button-primary"
+              >
                 {hero.primaryCta.label}
               </Link>
               <Link href={hero.secondaryCta.href} className="button-secondary">
@@ -179,7 +186,12 @@ export function PortfolioHome() {
             ))}
           </div>
           <div className="flex justify-start">
-            <Link href="/projects" className="button-secondary">
+            <Link
+              href="/projects"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-secondary"
+            >
               更多作品
             </Link>
           </div>
