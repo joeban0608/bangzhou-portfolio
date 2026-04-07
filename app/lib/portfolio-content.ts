@@ -17,6 +17,12 @@ export type LinkItem = {
   openInNewTab?: boolean;
 };
 
+export type MediaItem = {
+  label: string;
+  href: string;
+  platform: "github";
+};
+
 export type HeroContent = {
   headline: string;
   subheadline: string;
@@ -74,6 +80,7 @@ export type PortfolioContent = {
   allProjects: ProjectItem[];
   experience: ExperienceItem[];
   contact: LinkItem[];
+  media: MediaItem[];
 };
 
 function formatPeriod(start?: string, end?: string) {
@@ -367,6 +374,13 @@ export const portfolioContent: PortfolioContent = {
       href: `https://www.google.com/maps/search/${encodeURIComponent(
         `${basics.location.city}${basics.location.district}`,
       )}`,
+    },
+  ],
+  media: [
+    {
+      label: "GitHub",
+      href: "https://github.com/joeban0608",
+      platform: "github",
     },
   ],
 };

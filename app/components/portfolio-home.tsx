@@ -5,9 +5,57 @@ import { SectionHeading } from "@/app/components/section-heading";
 import { portfolioContent } from "@/app/lib/portfolio-content";
 import joeAvatar from "@/joe/joe-avatar.jpg";
 
+function MediaIcon({ platform }: { platform: "github" }) {
+  if (platform === "github") {
+    return (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-5 w-5 fill-current"
+      >
+        <path d="M12 2C6.477 2 2 6.484 2 12.018c0 4.427 2.865 8.182 6.839 9.504.5.093.682-.217.682-.483 0-.237-.008-.866-.013-1.699-2.782.605-3.369-1.343-3.369-1.343-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.004.071 1.532 1.033 1.532 1.033.892 1.53 2.341 1.088 2.91.832.091-.647.349-1.088.635-1.338-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.389-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .839-.269 2.75 1.026A9.562 9.562 0 0 1 12 6.844a9.55 9.55 0 0 1 2.504.337c1.909-1.295 2.747-1.026 2.747-1.026.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.337 4.695-4.566 4.943.359.31.678.921.678 1.857 0 1.34-.012 2.421-.012 2.75 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.018C22 6.484 17.523 2 12 2Z" />
+      </svg>
+    );
+  }
+
+  return null;
+}
+
+function MediaButton({
+  href,
+  label,
+  platform,
+}: {
+  href: string;
+  label: string;
+  platform: "github";
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      className="group inline-flex h-16 w-16 items-center justify-center rounded-[1.2rem] border border-white/10 bg-[linear-gradient(135deg,#141414,#0b0f19)] text-white shadow-[0_14px_28px_rgba(0,0,0,0.3)] transition hover:-translate-y-1 hover:border-[var(--color-border-strong)] hover:shadow-[0_20px_38px_rgba(0,0,0,0.36)]"
+    >
+      <span className="flex h-11 w-11 items-center justify-center text-white transition group-hover:scale-105">
+        <MediaIcon platform={platform} />
+      </span>
+    </a>
+  );
+}
+
 export function PortfolioHome() {
-  const { navigation, hero, about, skills, projects, experience, contact } =
-    portfolioContent;
+  const {
+    navigation,
+    hero,
+    about,
+    skills,
+    projects,
+    experience,
+    contact,
+    media,
+  } = portfolioContent;
   const primaryExperience = experience.slice(0, 3);
   const remainingExperience = experience.slice(3);
 
@@ -54,7 +102,10 @@ export function PortfolioHome() {
         </div>
       </header>
 
-      <main id="top" className="mx-auto flex w-full max-w-6xl flex-col gap-24 px-6 sm:px-8">
+      <main
+        id="top"
+        className="mx-auto flex w-full max-w-6xl flex-col gap-24 px-6 sm:px-8"
+      >
         <section className="grid gap-10 pb-6 pt-8 lg:grid-cols-[minmax(0,1.18fr)_minmax(320px,0.82fr)] lg:items-start lg:gap-12 lg:pt-12">
           <div className="space-y-7 lg:max-w-[44rem] lg:pt-6">
             <div className="inline-flex rounded-full border border-[var(--color-border-strong)] bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.3em] text-[var(--color-accent-soft)]">
@@ -76,7 +127,9 @@ export function PortfolioHome() {
                 href={hero.primaryCta.href}
                 target={hero.primaryCta.openInNewTab ? "_blank" : undefined}
                 rel={
-                  hero.primaryCta.openInNewTab ? "noopener noreferrer" : undefined
+                  hero.primaryCta.openInNewTab
+                    ? "noopener noreferrer"
+                    : undefined
                 }
                 className="button-primary"
               >
@@ -102,8 +155,12 @@ export function PortfolioHome() {
                 </div>
                 <div className="flex items-center justify-between border-t border-white/10 px-5 py-4">
                   <div>
-                    <p className="text-sm text-[var(--color-text-muted)]">Location</p>
-                    <p className="mt-1 text-xl font-semibold text-white">Taipei, Taiwan</p>
+                    <p className="text-sm text-[var(--color-text-muted)]">
+                      Location
+                    </p>
+                    <p className="mt-1 text-xl font-semibold text-white">
+                      Taipei, Taiwan
+                    </p>
                   </div>
                   <div className="h-14 w-14 rounded-full border border-white/15 bg-[radial-gradient(circle,_rgba(96,165,250,0.55),_rgba(59,130,246,0.08)_58%,_transparent_60%)]" />
                 </div>
@@ -128,7 +185,8 @@ export function PortfolioHome() {
               </div>
               <div className="rounded-[1.75rem] border border-[var(--color-border-strong)] bg-[linear-gradient(135deg,rgba(15,23,42,0.86),rgba(49,46,129,0.34))] p-5">
                 <p className="text-sm leading-7 text-[var(--color-text-muted)]">
-                  近年的工作重心涵蓋 AI SaaS 平台、OAuth 登入、SEO 自動化流程，以及 GCP、AWS、Cloudflare 上的部署與維運。
+                  近年的工作重心涵蓋 AI SaaS 平台、OAuth 登入、SEO
+                  自動化流程，以及 GCP、AWS、Cloudflare 上的部署與維運。
                 </p>
               </div>
             </div>
@@ -161,7 +219,9 @@ export function PortfolioHome() {
           <div className="grid gap-5 lg:grid-cols-3">
             {skills.map((group) => (
               <article key={group.category} className="panel-card p-6">
-                <h3 className="text-xl font-semibold text-white">{group.category}</h3>
+                <h3 className="text-xl font-semibold text-white">
+                  {group.category}
+                </h3>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <span key={item} className="chip">
@@ -215,7 +275,9 @@ export function PortfolioHome() {
                     {item.period}
                   </p>
                   <div className="space-y-2">
-                    <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                    <h3 className="text-xl font-semibold text-white">
+                      {item.title}
+                    </h3>
                     <p className="text-sm text-[var(--color-text-muted)]">
                       {item.organization}
                     </p>
@@ -251,7 +313,9 @@ export function PortfolioHome() {
                       {item.period}
                     </p>
                     <div className="space-y-2">
-                      <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                      <h3 className="text-xl font-semibold text-white">
+                        {item.title}
+                      </h3>
                       <p className="text-sm text-[var(--color-text-muted)]">
                         {item.organization}
                       </p>
@@ -271,9 +335,6 @@ export function PortfolioHome() {
               ))}
             </div>
           </details>
-          <div className="rounded-[1.5rem] border border-white/8 bg-white/4 px-5 py-4 text-sm leading-7 text-[var(--color-text-muted)]">
-            首頁保留 timeline 摘要，詳細專案與完整成果可再往下延伸為 case study。
-          </div>
         </section>
 
         <section id="contact" className="scroll-mt-28 pb-12">
@@ -289,6 +350,21 @@ export function PortfolioHome() {
                 <p className="max-w-2xl text-base leading-8 text-[var(--color-text-muted)] sm:text-lg">
                   第一版先保留最直接的聯絡入口。未來若需要，也可以延伸成表單、作品詳情頁與更多技術文章內容。
                 </p>
+                <div className="space-y-3 pt-2">
+                  <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent-soft)]">
+                    Media
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    {media.map((item) => (
+                      <MediaButton
+                        key={item.label}
+                        href={item.href}
+                        label={item.label}
+                        platform={item.platform}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
               <div className="grid gap-4">
                 {contact.map((item) => (
