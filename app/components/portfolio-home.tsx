@@ -197,9 +197,18 @@ export function PortfolioHome() {
             {projects.map((project, index) => (
               <article
                 key={project.slug}
-                className="panel-card grid gap-6 p-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:p-8"
+                className="panel-card grid gap-6 overflow-hidden p-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:p-8"
               >
                 <div className="space-y-4">
+                  {project.image ? (
+                    <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/20">
+                      <Image
+                        src={project.image.src}
+                        alt={project.image.alt}
+                        className="h-auto w-full object-cover"
+                      />
+                    </div>
+                  ) : null}
                   <div className="flex items-center gap-3">
                     <span className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent-soft)]">
                       Project {String(index + 1).padStart(2, "0")}
@@ -247,10 +256,12 @@ export function PortfolioHome() {
                   <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent-soft)]">
                     {item.period}
                   </p>
-                  <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                  <p className="text-sm text-[var(--color-text-muted)]">
-                    {item.organization}
-                  </p>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                    <p className="text-sm text-[var(--color-text-muted)]">
+                      {item.organization}
+                    </p>
+                  </div>
                 </div>
                 <div className="grid gap-3">
                   {item.highlights.map((highlight) => (

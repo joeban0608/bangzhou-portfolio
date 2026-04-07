@@ -1,4 +1,11 @@
+import type { StaticImageData } from "next/image";
 import resume from "@/joe/joe-resume.json";
+import aboutMeAvatar from "@/joe/project-avatars/about-me.webp";
+import crownShopAvatar from "@/joe/project-avatars/crown-shop.png";
+import familyLaundryAvatar from "@/joe/project-avatars/family-laundry.webp";
+import robotFriendAvatar from "@/joe/project-avatars/robot-friend.webp";
+import seoFlowAvatar from "@/joe/project-avatars/seo-flow.webp";
+import smartBrainAvatar from "@/joe/project-avatars/smart-brain.webp";
 
 export type LinkItem = {
   label: string;
@@ -27,6 +34,10 @@ export type ProjectItem = {
   role: string;
   techStack: string[];
   href: string;
+  image?: {
+    src: StaticImageData;
+    alt: string;
+  };
 };
 
 export type ExperienceItem = {
@@ -78,7 +89,16 @@ function createSlug(value: string) {
 
 const { basics, experience, projects } = resume;
 
-const featuredExperience = experience.slice(0, 3).map((item) => ({
+const projectImageByName: Record<string, StaticImageData> = {
+  "My portfolio": aboutMeAvatar,
+  MyRobotFriends: robotFriendAvatar,
+  "smart-brain-api": smartBrainAvatar,
+  "crown-clothing": crownShopAvatar,
+  "家庭預約洗衣系統": familyLaundryAvatar,
+  "SaaS 平台 — AI 自動建立網站 (SEO Flow)": seoFlowAvatar,
+};
+
+const featuredExperience = experience.slice(0, 5).map((item) => ({
   period: formatPeriod(item.start, item.end),
   title: item.role,
   organization: item.company,
@@ -103,6 +123,12 @@ const featuredProjects = [
           : "前後端整合、功能實作、專案部署",
     techStack: item.techStack.slice(0, 4),
     href: "#contact",
+    image: projectImageByName[item.name]
+      ? {
+          src: projectImageByName[item.name],
+          alt: `${item.name} 專案畫面`,
+        }
+      : undefined,
   }));
 
 export const portfolioContent: PortfolioContent = {
