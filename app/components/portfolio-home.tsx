@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { portfolioContent } from "@/app/lib/portfolio-content";
+import joeAvatar from "@/joe/joe-avatar.jpg";
 
 function SectionHeading({
   eyebrow,
@@ -101,14 +103,23 @@ export function PortfolioHome() {
 
           <div className="panel-card p-6 sm:p-8">
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <div>
-                  <p className="text-sm text-[var(--color-text-muted)]">Focus</p>
-                  <p className="mt-1 text-xl font-semibold text-white">
-                    Product-minded Engineering
-                  </p>
+              <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]">
+                <div className="relative aspect-[4/5]">
+                  <Image
+                    src={joeAvatar}
+                    alt="洪邦洲個人頭像"
+                    placeholder="blur"
+                    priority
+                    className="h-full w-full object-cover"
+                  />
                 </div>
-                <div className="h-14 w-14 rounded-full border border-white/15 bg-[radial-gradient(circle,_rgba(96,165,250,0.55),_rgba(59,130,246,0.08)_58%,_transparent_60%)]" />
+                <div className="flex items-center justify-between border-t border-white/10 px-5 py-4">
+                  <div>
+                    <p className="text-sm text-[var(--color-text-muted)]">Location</p>
+                    <p className="mt-1 text-xl font-semibold text-white">Taipei, Taiwan</p>
+                  </div>
+                  <div className="h-14 w-14 rounded-full border border-white/15 bg-[radial-gradient(circle,_rgba(96,165,250,0.55),_rgba(59,130,246,0.08)_58%,_transparent_60%)]" />
+                </div>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-2xl border border-white/8 bg-white/5 p-4">
@@ -116,21 +127,21 @@ export function PortfolioHome() {
                     Core Stack
                   </p>
                   <p className="mt-3 text-base leading-7 text-white">
-                    Next.js, React, TypeScript, Tailwind CSS
+                    Next.js, React, TypeScript, Node.js
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/8 bg-white/5 p-4">
                   <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent-soft)]">
-                    Working Style
+                    Focus
                   </p>
                   <p className="mt-3 text-base leading-7 text-white">
-                    以需求理解、工程品質與長期維護為主軸推進開發。
+                    Frontend, full-stack integration, cloud delivery
                   </p>
                 </div>
               </div>
               <div className="rounded-[1.75rem] border border-[var(--color-border-strong)] bg-[linear-gradient(135deg,rgba(15,23,42,0.86),rgba(49,46,129,0.34))] p-5">
                 <p className="text-sm leading-7 text-[var(--color-text-muted)]">
-                  我希望做的不只是「把畫面做出來」，而是讓內容、互動與技術選型一起支撐產品價值。
+                  近年的工作重心涵蓋 AI SaaS 平台、OAuth 登入、SEO 自動化流程，以及 GCP、AWS、Cloudflare 上的部署與維運。
                 </p>
               </div>
             </div>
