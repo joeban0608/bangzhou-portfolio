@@ -70,6 +70,26 @@ The system SHALL show exactly three featured projects on the homepage and SHALL 
 - **THEN** the system renders a full project listing page using the same content source as the homepage
 - **AND** project anchors support linking to specific entries from the homepage
 
+### Requirement: Portfolio content SHALL support multiple project data sources
+The system SHALL be able to compose project entries from both the resume JSON and an additional project-extension JSON without forcing the UI layer to know which source a project came from.
+
+#### Scenario: Extended project data is added
+- **WHEN** a maintainer adds a project entry to the extension JSON
+- **THEN** the project can appear in the portfolio using the same card component and content mapping rules as resume-backed projects
+- **AND** local project preview images can be attached through the shared image mapping layer
+
+### Requirement: Homepage and portfolio page SHALL support independent project ordering
+The system SHALL allow homepage featured-project ordering and `/projects` full-list ordering to be controlled independently from project data.
+
+#### Scenario: Homepage ordering differs from portfolio ordering
+- **WHEN** project data defines separate ordering values for homepage and portfolio views
+- **THEN** the homepage selects and orders featured projects using the homepage-specific field
+- **AND** the `/projects` page orders the full list using the portfolio-specific field
+
+#### Scenario: Legacy sort field still exists
+- **WHEN** a project item does not yet define the new split ordering fields
+- **THEN** the system falls back to the legacy ordering field or source order instead of failing rendering
+
 ### Requirement: Homepage SHALL summarize experience with expandable detail
 The system SHALL present a condensed experience timeline on the homepage that shows the first three entries by default and allows visitors to expand the remaining entries inline.
 

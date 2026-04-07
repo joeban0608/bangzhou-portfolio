@@ -1,11 +1,14 @@
 import type { StaticImageData } from "next/image";
+import extendProjects from "@/joe/2026-extend-projects.json";
 import resume from "@/joe/joe-resume.json";
 import aboutMeAvatar from "@/joe/project-avatars/about-me.webp";
 import crownShopAvatar from "@/joe/project-avatars/crown-shop.png";
+import devSnippetAvatar from "@/joe/project-avatars/dev-snippet.png";
 import familyLaundryAvatar from "@/joe/project-avatars/family-laundry.webp";
 import robotFriendAvatar from "@/joe/project-avatars/robot-friend.webp";
 import seoFlowAvatar from "@/joe/project-avatars/seo-flow.webp";
 import smartBrainAvatar from "@/joe/project-avatars/smart-brain.webp";
+import superClinicAvatar from "@/joe/project-avatars/super-clinic.png";
 
 export type LinkItem = {
   label: string;
@@ -34,6 +37,7 @@ export type ProjectItem = {
   role: string;
   techStack: string[];
   href: string;
+  linkLabel: string;
   period?: string;
   highlights: string[];
   image?: {
@@ -78,7 +82,7 @@ function formatPeriod(start?: string, end?: string) {
 
   const formattedStart = start.replace("-", ".");
   const formattedEnd =
-    end && end !== "至今" ? end.replace("-", ".") : end ?? "至今";
+    end && end !== "至今" ? end.replace("-", ".") : (end ?? "至今");
 
   return `${formattedStart} - ${formattedEnd}`;
 }
@@ -90,6 +94,15 @@ function createSlug(value: string) {
     .replace(/^-+|-+$/g, "");
 }
 
+type ResumeProject = (typeof resume.projects)[number];
+type ExtendProject = (typeof extendProjects)[number];
+type SourceProject = ResumeProject | ExtendProject;
+type SortableProject = SourceProject & {
+  homeSortOrder?: number;
+  portfolioSortOrder?: number;
+  sortOrder?: number;
+};
+
 const { basics, experience, projects } = resume;
 
 const projectImageByName: Record<string, StaticImageData> = {
@@ -97,8 +110,10 @@ const projectImageByName: Record<string, StaticImageData> = {
   MyRobotFriends: robotFriendAvatar,
   "smart-brain-api": smartBrainAvatar,
   "crown-clothing": crownShopAvatar,
-  "家庭預約洗衣系統": familyLaundryAvatar,
+  "Dev Snippet Manager": devSnippetAvatar,
+  家庭預約洗衣系統: familyLaundryAvatar,
   "SaaS 平台 — AI 自動建立網站 (SEO Flow)": seoFlowAvatar,
+  "Super Clinic": superClinicAvatar,
 };
 
 function createProjectRole(type: string) {
@@ -114,7 +129,54 @@ function createProjectRole(type: string) {
     return "個人品牌定位、內容編排與前端呈現";
   }
 
+  if (type === "fullstack app / auth system") {
+    return "認證流程設計、權限控管與全端架構實作";
+  }
+
+  if (type === "product prototype / UX demo") {
+    return "產品原型規劃、資訊架構與 AI 輔助互動設計";
+  }
+
   return "前後端整合、功能實作、專案部署";
+}
+
+function createProjectHref(project: SourceProject) {
+  if ("links" in project && project.links?.github) {
+    return project.links.github;
+  }
+
+  return "/#contact";
+}
+
+function createProjectLinkLabel(project: SourceProject) {
+  if ("links" in project && project.links?.github) {
+    return "查看專案連結";
+  }
+
+  return "聯絡我了解更多";
+}
+
+function createProjectPeriod(project: SourceProject) {
+  if ("start" in project || "end" in project) {
+    return formatPeriod(project.start, project.end);
+  }
+
+  return undefined;
+}
+
+function getProjectSortOrder(
+  project: SortableProject,
+  key: "homeSortOrder" | "portfolioSortOrder",
+) {
+  if (key in project && typeof project[key] === "number") {
+    return project[key];
+  }
+
+  if ("sortOrder" in project && typeof project.sortOrder === "number") {
+    return project.sortOrder;
+  }
+
+  return Number.MAX_SAFE_INTEGER;
 }
 
 const mappedExperience = experience.map((item) => ({
@@ -124,14 +186,32 @@ const mappedExperience = experience.map((item) => ({
   highlights: item.highlights.slice(0, 2),
 }));
 
-const mappedProjects: ProjectItem[] = projects.map((item) => ({
+const combinedProjects: SortableProject[] = [...projects, ...extendProjects];
+
+const sortedPortfolioProjects = combinedProjects
+  .map((item, index) => ({ item, index }))
+  .sort((left, right) => {
+    const sortOrderDiff =
+      getProjectSortOrder(left.item, "portfolioSortOrder") -
+      getProjectSortOrder(right.item, "portfolioSortOrder");
+
+    if (sortOrderDiff !== 0) {
+      return sortOrderDiff;
+    }
+
+    return left.index - right.index;
+  })
+  .map(({ item }) => item);
+
+const mappedProjects: ProjectItem[] = sortedPortfolioProjects.map((item) => ({
   slug: createSlug(item.name),
   name: item.name,
   summary: item.description,
   role: createProjectRole(item.type),
   techStack: item.techStack.slice(0, 5),
-  href: item.links?.github ?? "#contact",
-  period: formatPeriod(item.start, item.end),
+  href: createProjectHref(item),
+  linkLabel: createProjectLinkLabel(item),
+  period: createProjectPeriod(item),
   highlights: item.highlights.slice(0, 4),
   image: projectImageByName[item.name]
     ? {
@@ -141,15 +221,52 @@ const mappedProjects: ProjectItem[] = projects.map((item) => ({
     : undefined,
 }));
 
-const featuredProjects = [
-  mappedProjects.find((item) => item.name.includes("SEO Flow")),
-  mappedProjects.find((item) => item.name.includes("crown-clothing")),
-  mappedProjects.find((item) => item.name.includes("smart-brain-api")),
-].filter((item): item is ProjectItem => item !== undefined);
+const homeSortedProjects = combinedProjects
+  .map((item, index) => ({ item, index }))
+  .sort((left, right) => {
+    const sortOrderDiff =
+      getProjectSortOrder(left.item, "homeSortOrder") -
+      getProjectSortOrder(right.item, "homeSortOrder");
+
+    if (sortOrderDiff !== 0) {
+      return sortOrderDiff;
+    }
+
+    return left.index - right.index;
+  })
+  .map(({ item }) => item);
+
+const mappedProjectBySlug = new Map(
+  mappedProjects.map((item) => [item.slug, item]),
+);
+
+const featuredProjects = homeSortedProjects.some(
+  (item) =>
+    getProjectSortOrder(item, "homeSortOrder") !== Number.MAX_SAFE_INTEGER,
+)
+  ? homeSortedProjects
+      .filter(
+        (item) =>
+          getProjectSortOrder(item, "homeSortOrder") !==
+          Number.MAX_SAFE_INTEGER,
+      )
+      .slice(0, 3)
+      .map((item) => mappedProjectBySlug.get(createSlug(item.name)))
+      .filter((item): item is ProjectItem => item !== undefined)
+  : [
+      mappedProjectBySlug.get(
+        createSlug("SaaS 平台 — AI 自動建立網站 (SEO Flow)"),
+      ),
+      mappedProjectBySlug.get(createSlug("crown-clothing")),
+      mappedProjectBySlug.get(createSlug("smart-brain-api")),
+    ].filter((item): item is ProjectItem => item !== undefined);
 
 const allProjects = mappedProjects.map((item) => ({
   ...item,
-  href: `/projects#${item.slug}`,
+  href:
+    item.href.startsWith("http") || item.href.startsWith("/")
+      ? item.href
+      : `/projects#${item.slug}`,
 }));
 
 export const portfolioContent: PortfolioContent = {
@@ -229,6 +346,7 @@ export const portfolioContent: PortfolioContent = {
   projects: featuredProjects.map((item) => ({
     ...item,
     href: `/projects#${item.slug}`,
+    linkLabel: "查看這個作品",
   })),
   allProjects,
   experience: mappedExperience,
@@ -247,7 +365,7 @@ export const portfolioContent: PortfolioContent = {
       label: "Location",
       value: `${basics.location.city}${basics.location.district}`,
       href: `https://www.google.com/maps/search/${encodeURIComponent(
-        `${basics.location.city}${basics.location.district}`
+        `${basics.location.city}${basics.location.district}`,
       )}`,
     },
   ],

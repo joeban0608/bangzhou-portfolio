@@ -13,23 +13,11 @@
     "availability": "錄取後隨時可上班",
     "employmentStatus": "待業中",
     "militaryStatus": "免役",
-    "licenses": [
-      "輕型機車駕照",
-      "普通小型車駕照"
-    ],
-    "transportation": [
-      "輕型機車"
-    ],
-    "preferredRoles": [
-      "軟體工程師"
-    ],
-    "preferredLocations": [
-      "台北市",
-      "新北市"
-    ],
-    "preferredIndustries": [
-      "軟體及網路相關業"
-    ],
+    "licenses": ["輕型機車駕照", "普通小型車駕照"],
+    "transportation": ["輕型機車"],
+    "preferredRoles": ["軟體工程師"],
+    "preferredLocations": ["台北市", "新北市"],
+    "preferredIndustries": ["軟體及網路相關業"],
     "workType": "全職",
     "workShift": "日班"
   },
@@ -189,16 +177,8 @@
       "start": "2021-07",
       "end": "2021-10",
       "duration": "4個月",
-      "highlights": [
-        "學習網頁開發相關知識",
-        "實作網頁開發專案"
-      ],
-      "techStack": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Web Development"
-      ]
+      "highlights": ["學習網頁開發相關知識", "實作網頁開發專案"],
+      "techStack": ["HTML", "CSS", "JavaScript", "Web Development"]
     },
     {
       "company": "國立台北科技大學",
@@ -271,15 +251,8 @@
       "Performance Optimization",
       "Progressive Web App"
     ],
-    "fullstackFrameworks": [
-      "Next.js",
-      "Svelte"
-    ],
-    "backend": [
-      "Node.js",
-      "Python",
-      "Flask"
-    ],
+    "fullstackFrameworks": ["Next.js", "Svelte"],
+    "backend": ["Node.js", "Python", "Flask"],
     "dataAndAi": [
       "Keras",
       "Scikit-learn",
@@ -308,17 +281,8 @@
       "OMS Service",
       "Firebase"
     ],
-    "databases": [
-      "PostgreSQL",
-      "MySQL"
-    ],
-    "tools": [
-      "Git",
-      "UML",
-      "Word",
-      "PowerPoint",
-      "Excel"
-    ],
+    "databases": ["PostgreSQL", "MySQL"],
+    "tools": ["Git", "UML", "Word", "PowerPoint", "Excel"],
     "tags": [
       "ReactJS",
       "PostgreSQL",
@@ -343,24 +307,14 @@
         "部署到 Netlify",
         "分享至 GitHub"
       ],
-      "techStack": [
-        "JavaScript",
-        "Netlify",
-        "GitHub"
-      ]
+      "techStack": ["JavaScript", "Netlify", "GitHub"]
     },
     {
       "name": "MyRobotFriends",
       "type": "學習專案",
       "description": "React 開發學習專案，將 React 專案部署到 GitHub，並有搭配 blog 學習資源分享。",
-      "highlights": [
-        "React 開發學習",
-        "部署到 GitHub"
-      ],
-      "techStack": [
-        "React",
-        "GitHub"
-      ],
+      "highlights": ["React 開發學習", "部署到 GitHub"],
+      "techStack": ["React", "GitHub"],
       "links": {
         "github": "https://github.com/joeban0608/ZTM-MyRobotFriends"
       }
@@ -379,12 +333,7 @@
         "具備註冊、登入、人臉辨識功能",
         "部署到 Heroku"
       ],
-      "techStack": [
-        "React",
-        "Node.js",
-        "PostgreSQL",
-        "Heroku"
-      ]
+      "techStack": ["React", "Node.js", "PostgreSQL", "Heroku"]
     },
     {
       "name": "crown-clothing",
@@ -398,12 +347,7 @@
         "購物車系統",
         "Netlify CI/CD"
       ],
-      "techStack": [
-        "React",
-        "Firebase",
-        "Netlify",
-        "CI/CD"
-      ],
+      "techStack": ["React", "Firebase", "Netlify", "CI/CD"],
       "links": {
         "github": "https://github.com/joeban0608/ZTM-crown-clothing-2023/blob/main/README.md"
       }
@@ -418,12 +362,7 @@
         "群組模組",
         "Line 官方通知整合"
       ],
-      "techStack": [
-        "Svelte",
-        "Supabase",
-        "Google Auth",
-        "LINE Messaging API"
-      ]
+      "techStack": ["Svelte", "Supabase", "Google Auth", "LINE Messaging API"]
     },
     {
       "name": "SaaS 平台 — AI 自動建立網站 (SEO Flow)",
@@ -496,13 +435,7 @@
     }
   ],
   "other": {
-    "music": [
-      "烏克麗麗",
-      "吉他"
-    ],
-    "notes": [
-      "曾教導音樂演奏技巧",
-      "曾擔任獨奏與樂器演奏"
-    ]
+    "music": ["烏克麗麗", "吉他"],
+    "notes": ["曾教導音樂演奏技巧", "曾擔任獨奏與樂器演奏"]
   }
 }

@@ -65,7 +65,7 @@ export function ProjectCard({
           rel={isExternalLink ? "noopener noreferrer" : undefined}
           className="inline-flex w-fit items-center text-sm text-[var(--color-accent-soft)] transition hover:text-white"
         >
-          {isExternalLink ? "查看專案連結" : "查看這個作品"}
+          {project.linkLabel}
         </Link>
       </div>
     </article>

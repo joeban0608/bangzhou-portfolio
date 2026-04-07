@@ -32,3 +32,9 @@
 - [x] 5.1 將首頁 Projects 區塊調整為 3 個精選作品，並固定為 SEO Flow、crown-clothing、smart-brain-api
 - [x] 5.2 新增 `/projects` route 承接完整作品列表，並讓首頁「更多作品」導向該頁
 - [x] 5.3 將首頁 Experience 區塊改為 timeline 摘要，預設顯示 3 筆並支援同頁展開更多
+
+## 6. 作品資料來源與排序擴充
+
+- [x] 6.1 將額外作品 JSON 併入現有作品資料映射，讓作品集可顯示新增專案
+- [x] 6.2 接入新增專案圖片資產，並沿用既有作品卡渲染流程
+- [x] 6.3 支援 `homeSortOrder` 與 `portfolioSortOrder`，同時保留舊 `sortOrder` fallback

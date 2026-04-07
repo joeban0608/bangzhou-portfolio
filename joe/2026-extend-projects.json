@@ -1,0 +1,97 @@
+[
+  {
+    "name": "Dev Snippet Manager",
+    "id": "dev-snippet",
+    "type": "fullstack app / auth system",
+    "status": "MVP",
+    "description": "一個專注於實作真實 OAuth 流程與權限控管的開發者工具。不同於單純 login demo，此專案完整實作 GitHub / Google OAuth、資料庫 session、使用者資源 ownership 控制與 server-side authorization。",
+    "highlights": [
+      "實作 GitHub 與 Google OAuth（Auth.js v5）",
+      "資料庫 session 管理（非 JWT-only demo）",
+      "Next.js App Router protected routes",
+      "Server-side ownership enforcement（確保資料只屬於該 user）",
+      "Snippet CRUD（Create / Read / Update / Delete）",
+      "使用 Zod 進行 server action validation",
+      "以 MVP 為核心，刻意不加入 tags / search / admin 等功能"
+    ],
+    "techStack": [
+      "Next.js (App Router)",
+      "Auth.js v5",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Zod",
+      "Server Actions"
+    ],
+    "features": {
+      "auth": [
+        "GitHub OAuth login",
+        "Google OAuth login",
+        "Logout"
+      ],
+      "core": [
+        "Protected dashboard",
+        "User-owned snippets",
+        "CRUD operations"
+      ],
+      "security": [
+        "Server-side authorization",
+        "Ownership validation"
+      ]
+    },
+    "portfolioStory": [
+      "展示真實 OAuth flow（不是 demo login）",
+      "展示 session + database + authorization 三者整合能力",
+      "展示 Next.js App Router + server action 架構理解"
+    ]
+  },
+  {
+    "name": "Super Clinic",
+    "id": "super-clinic",
+    "type": "product prototype / UX demo",
+    "status": "prototype",
+    "description": "中醫診所掛號首頁 prototype，目標是在短時間內完成可 demo 的產品體驗。透過清楚且可信的資訊設計，讓使用者快速理解門診班表並透過 AI 掛號助手完成預約引導。",
+    "highlights": [
+      "快速打造可 demo 的診所掛號首頁",
+      "設計清楚且可信的醫療資訊 UI",
+      "門診班表視覺化呈現",
+      "AI 掛號助手（chatbot UI）",
+      "支援初診與回診掛號引導",
+      "一鍵開啟 chatbot 互動流程"
+    ],
+    "techStack": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Frontend Fake Data",
+      "AI Chat UI (mock)"
+    ],
+    "features": {
+      "ui": [
+        "診所首頁 hero",
+        "門診班表展示",
+        "CTA 掛號入口"
+      ],
+      "aiAssistant": [
+        "Chatbot popup",
+        "掛號流程引導",
+        "醫師與時段推薦（mock）"
+      ],
+      "uxFocus": [
+        "降低掛號理解成本",
+        "提升首次使用者轉換",
+        "資訊清楚、可信感設計"
+      ]
+    },
+    "productThinking": [
+      "以 demo 為導向快速交付 MVP",
+      "強調資訊架構與使用者理解流程",
+      "結合 AI 作為輔助而非取代流程",
+      "針對台灣診所號碼制設計掛號體驗"
+    ],
+    "portfolioStory": [
+      "展示產品思維（不只是寫 code）",
+      "展示 UX + AI integration 能力",
+      "展示快速 prototype 與 demo 能力"
+    ]
+  }
+]
