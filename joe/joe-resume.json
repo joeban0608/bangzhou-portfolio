@@ -1,0 +1,508 @@
+{
+  "basics": {
+    "name": "洪邦洲",
+    "englishName": "joe",
+    "title": "軟體工程師 / 前端工程師 / 全端工程師",
+    "summary": "具前端與全端開發經驗，熟悉 React、Next.js、TypeScript、Node.js、Svelte、GCP、AWS 與 Cloudflare。具備產品需求分析、前後端整合、部署維運、AI SaaS 平台開發與團隊協作經驗。",
+    "location": {
+      "city": "台北市",
+      "district": "信義區"
+    },
+    "phone": "0916-906-750",
+    "email": "joeanddaneil5@gmail.com",
+    "availability": "錄取後隨時可上班",
+    "employmentStatus": "待業中",
+    "militaryStatus": "免役",
+    "licenses": [
+      "輕型機車駕照",
+      "普通小型車駕照"
+    ],
+    "transportation": [
+      "輕型機車"
+    ],
+    "preferredRoles": [
+      "軟體工程師"
+    ],
+    "preferredLocations": [
+      "台北市",
+      "新北市"
+    ],
+    "preferredIndustries": [
+      "軟體及網路相關業"
+    ],
+    "workType": "全職",
+    "workShift": "日班"
+  },
+  "education": [
+    {
+      "school": "ZERO TO MASTER",
+      "department": "資訊學系",
+      "degree": "大學畢業",
+      "start": "2021-07",
+      "end": "2021-10"
+    },
+    {
+      "school": "國立台北科技大學",
+      "department": "AI&Python程式設計養成班",
+      "degree": "大學畢業",
+      "start": "2021-01",
+      "end": "2021-06"
+    },
+    {
+      "school": "致理科技大學",
+      "department": "應用外語系",
+      "degree": "大學畢業",
+      "start": "2010-09",
+      "end": "2014-09"
+    }
+  ],
+  "experience": [
+    {
+      "company": "海曼企業有限公司",
+      "industry": "其它軟體及網路相關業",
+      "role": "全端工程師",
+      "location": "台北市大同區",
+      "start": "2024-11",
+      "end": "2026-02",
+      "duration": "1年4個月",
+      "highlights": [
+        "與需求單位進行跨部門溝通，參與產品需求分析、功能規劃與技術架構設計",
+        "使用 GCP 建置與部署正式環境系統，包含容器化與雲端基礎架構管理",
+        "建立 Docker 容器化流程，實作 Kubernetes / GKE 部署與維運",
+        "使用 Next.js 與 Svelte 開發全端應用系統，負責 API 設計與前後端整合",
+        "設計並實作 OAuth 第三方登入系統，包含前後端驗證流程與權限控管",
+        "使用 Cloudflare 進行 DNS 管理與 SSL 憑證設定",
+        "開發 AI 內容生成 SaaS 平台，設計自動化流程大量產生網站內容與 SEO 架構",
+        "整合 AI 模型與 Meta 廣告 API，建置自動化廣告投放與內容產製流程",
+        "開發內部工具與 side project，提升團隊開發效率",
+        "使用 Flutter 開發行動應用並上架 Apple App Store 與 Google Play"
+      ],
+      "techStack": [
+        "Next.js",
+        "Svelte",
+        "GCP",
+        "Docker",
+        "Kubernetes",
+        "GKE",
+        "OAuth",
+        "Cloudflare",
+        "SSL",
+        "Meta Ads API",
+        "Flutter"
+      ]
+    },
+    {
+      "company": "威展斯行銷科技股份有限公司",
+      "industry": "電腦軟體服務業",
+      "role": "全端工程師",
+      "location": "新北市林口區",
+      "start": "2023-10",
+      "end": "2024-10",
+      "duration": "1年1個月",
+      "highlights": [
+        "monorepo 策略開發專案",
+        "藍綠部署設計",
+        "自動部署設計",
+        "Cloudflare 操作",
+        "Google 雲服務管理：VM、Load Balancer、Cloud Storage",
+        "Amazon 管理：VM、S3",
+        "帶領新人完成專案",
+        "前端網頁設計",
+        "後端資料設計"
+      ],
+      "techStack": [
+        "Monorepo",
+        "Blue-Green Deployment",
+        "Cloudflare",
+        "GCP",
+        "AWS",
+        "VM",
+        "Load Balancer",
+        "Cloud Storage",
+        "S3"
+      ]
+    },
+    {
+      "company": "台灣幣蜂數位有限公司",
+      "industry": "網際網路相關業",
+      "role": "前端工程師",
+      "location": "台北市內湖區",
+      "start": "2023-03",
+      "end": "2024-02",
+      "duration": "1年",
+      "highlights": [
+        "學習並使用全端框架 Next",
+        "學習 TypeScript，並在專案內實際使用",
+        "整合團隊遠端專案資料，建構 GitHub 上傳流程",
+        "成為小組長，帶領新人完成各項專案",
+        "開發與串接 Twitter 自動化流程，產出報表協助分析廣告數據",
+        "SEO 優化，包含 Meta、Matomo、FB Pixel、GA"
+      ],
+      "techStack": [
+        "Next.js",
+        "TypeScript",
+        "GitHub",
+        "Twitter API",
+        "SEO",
+        "Meta",
+        "Matomo",
+        "FB Pixel",
+        "Google Analytics"
+      ]
+    },
+    {
+      "company": "希卡科技有限公司",
+      "industry": "電腦軟體服務業",
+      "role": "軟體工程師",
+      "location": "台北市內湖區",
+      "start": "2021-11",
+      "end": "2023-02",
+      "duration": "1年4個月",
+      "highlights": [
+        "為資深工程師，帶領新人熟悉專案並給予指導",
+        "React 專案開發",
+        "中端軟體開發與維護",
+        "GCP 平台服務串接：Cloud Storage、Cloud Functions、Load Balancer",
+        "GTM 串接，協助用戶分析",
+        "SEON 風控串接與維護",
+        "OMS service 串接與維護",
+        "MTS service 串接與維護",
+        "全站套色開發與維護"
+      ],
+      "techStack": [
+        "React",
+        "GCP",
+        "Cloud Storage",
+        "Cloud Functions",
+        "Load Balancer",
+        "GTM",
+        "SEON",
+        "OMS",
+        "MTS"
+      ]
+    },
+    {
+      "company": "ZTM-網頁工程師課程",
+      "industry": "網際網路相關業",
+      "role": "網頁設計師",
+      "location": "台北市信義區",
+      "start": "2021-07",
+      "end": "2021-10",
+      "duration": "4個月",
+      "highlights": [
+        "學習網頁開發相關知識",
+        "實作網頁開發專案"
+      ],
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Web Development"
+      ]
+    },
+    {
+      "company": "國立台北科技大學",
+      "industry": "大專校院教育事業",
+      "role": "Python軟體工程師",
+      "location": "台北市大安區",
+      "start": "2021-01",
+      "end": "2021-06",
+      "duration": "6個月",
+      "highlights": [
+        "學習程式設計技巧與數據科學分析",
+        "撰寫個人網路爬蟲專題，以雄獅旅遊為主題",
+        "與同學共同撰寫坐姿糾察隊專案",
+        "透過 ML、CNN、MLP 模型實作坐姿糾察功能",
+        "自學 OpenPose 並與 Python 結合",
+        "專題主要負責網路爬蟲資料蒐集、ML、CNN、MLP 模型開發與測試"
+      ],
+      "techStack": [
+        "Python",
+        "Web Scraping",
+        "Machine Learning",
+        "CNN",
+        "MLP",
+        "OpenPose"
+      ]
+    },
+    {
+      "company": "震旦行股份有限公司-台北五分公司(南港)",
+      "industry": "機械器具零售業",
+      "role": "資深業務專員",
+      "location": "台北市南港區",
+      "start": "2017-08",
+      "end": "2020-12",
+      "duration": "3年5個月",
+      "highlights": [
+        "替客戶提出辦公室設備解決方案，提升產品價值",
+        "協助影印機安裝與電腦連線設置",
+        "設備基本保養",
+        "客戶帳單發放與款項追蹤",
+        "送貨與安裝",
+        "與服務專員合作完成大型案件"
+      ],
+      "techStack": [
+        "Client Communication",
+        "Solution Selling",
+        "On-site Installation"
+      ]
+    }
+  ],
+  "skills": {
+    "frontend": [
+      "React",
+      "React-Redux",
+      "React Hook",
+      "React Thunk",
+      "React Saga",
+      "Redux Persist",
+      "Redux Toolkit",
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "SASS",
+      "Styled Components",
+      "Bootstrap",
+      "Material UI",
+      "GraphQL",
+      "Apollo",
+      "Unit Test",
+      "Performance Optimization",
+      "Progressive Web App"
+    ],
+    "fullstackFrameworks": [
+      "Next.js",
+      "Svelte"
+    ],
+    "backend": [
+      "Node.js",
+      "Python",
+      "Flask"
+    ],
+    "dataAndAi": [
+      "Keras",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "Web Scraping",
+      "Vertex AI"
+    ],
+    "cloudAndInfra": [
+      "GCP",
+      "AWS EC2",
+      "Cloud SQL",
+      "Cloud Storage",
+      "Kubernetes Engine",
+      "Docker",
+      "Cloudflare DNS",
+      "Nginx",
+      "Certbot",
+      "Load Balancer",
+      "VM"
+    ],
+    "analyticsAndServices": [
+      "GTM",
+      "SEON",
+      "MTS Service",
+      "OMS Service",
+      "Firebase"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "MySQL"
+    ],
+    "tools": [
+      "Git",
+      "UML",
+      "Word",
+      "PowerPoint",
+      "Excel"
+    ],
+    "tags": [
+      "ReactJS",
+      "PostgreSQL",
+      "Node.js",
+      "JavaScript",
+      "CSS",
+      "MySQL",
+      "Python",
+      "Git"
+    ]
+  },
+  "projects": [
+    {
+      "name": "My portfolio",
+      "type": "個人作品集",
+      "start": "2021-08",
+      "end": "2021-08",
+      "description": "個人 portfolio 展示，包含數個 JavaScript 作品分享，並部署到 Netlify，過程中自行 debug 並分享到 GitHub。",
+      "highlights": [
+        "個人 portfolio 展示",
+        "JavaScript 作品分享",
+        "部署到 Netlify",
+        "分享至 GitHub"
+      ],
+      "techStack": [
+        "JavaScript",
+        "Netlify",
+        "GitHub"
+      ]
+    },
+    {
+      "name": "MyRobotFriends",
+      "type": "學習專案",
+      "description": "React 開發學習專案，將 React 專案部署到 GitHub，並有搭配 blog 學習資源分享。",
+      "highlights": [
+        "React 開發學習",
+        "部署到 GitHub"
+      ],
+      "techStack": [
+        "React",
+        "GitHub"
+      ],
+      "links": {
+        "github": "https://github.com/joeban0608/ZTM-MyRobotFriends"
+      }
+    },
+    {
+      "name": "smart-brain-api",
+      "type": "全端專案",
+      "start": "2021-09",
+      "end": "2021-10",
+      "description": "React + Node.js + PostgreSQL 的人臉辨識專案，包含註冊、登入與人臉辨識功能，並部署至 Heroku。",
+      "highlights": [
+        "串接人臉辨識 API",
+        "串接前端 React",
+        "串接後端 Node.js",
+        "串接資料庫 PostgreSQL",
+        "具備註冊、登入、人臉辨識功能",
+        "部署到 Heroku"
+      ],
+      "techStack": [
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "Heroku"
+      ]
+    },
+    {
+      "name": "crown-clothing",
+      "type": "電商練習專案",
+      "start": "2023-01",
+      "end": "2023-02",
+      "description": "電商 shop page，含 Firebase Google 註冊登入、購物車系統與部署流程。",
+      "highlights": [
+        "Shop page",
+        "Firebase Google 註冊與登入登出",
+        "購物車系統",
+        "Netlify CI/CD"
+      ],
+      "techStack": [
+        "React",
+        "Firebase",
+        "Netlify",
+        "CI/CD"
+      ],
+      "links": {
+        "github": "https://github.com/joeban0608/ZTM-crown-clothing-2023/blob/main/README.md"
+      }
+    },
+    {
+      "name": "家庭預約洗衣系統",
+      "type": "side project",
+      "description": "為了解決家庭成員洗衣時間不同造成的溝通成本，設計具登入、預約、群組與通知模組的系統。",
+      "highlights": [
+        "OAuth 登入模組",
+        "預約模組",
+        "群組模組",
+        "Line 官方通知整合"
+      ],
+      "techStack": [
+        "Svelte",
+        "Supabase",
+        "Google Auth",
+        "LINE Messaging API"
+      ]
+    },
+    {
+      "name": "SaaS 平台 — AI 自動建立網站 (SEO Flow)",
+      "type": "公司內部 SaaS 平台",
+      "start": "2026-01",
+      "end": "2026-02",
+      "description": "AI 驅動的網站生成與內容管理平台。使用者可透過 AI Chat 輸入主題，自動建立網站結構、生成內容與 SEO metadata，並具備 CMS、Media Library、Knowledge Base 與多租戶 SaaS 管理能力。",
+      "highlights": [
+        "AI Chat 建立網站主題",
+        "自動生成首頁與內容",
+        "自動產生 SEO metadata",
+        "網站預覽頁",
+        "CMS 文章管理",
+        "Media Library 圖片管理",
+        "Knowledge Base",
+        "Organization / Workspace 多租戶架構",
+        "Wallet / Transactions 帳務系統",
+        "GCP VM 部署",
+        "Cloudflare DNS 管理",
+        "Caddy Web Server 與 HTTPS 憑證管理"
+      ],
+      "techStack": [
+        "SvelteKit",
+        "Tailwind CSS",
+        "TipTap Editor",
+        "Node.js",
+        "PostgreSQL",
+        "Drizzle ORM",
+        "LLM API",
+        "Prompt Engineering",
+        "Knowledge Base Retrieval",
+        "GCP VM",
+        "Cloudflare",
+        "Caddy"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "EEC-企業電子化助理規劃師",
+      "issuer": "TQC/EEC"
+    },
+    {
+      "name": "ZTM網頁工程師結訓證書"
+    },
+    {
+      "name": "AI&Python 程式設計人才養成班 修業證明書"
+    },
+    {
+      "name": "BULATS 劍橋領思英語檢測 Level B1"
+    },
+    {
+      "name": "志工服務證明"
+    },
+    {
+      "name": "烏克麗麗社社長證書"
+    },
+    {
+      "name": "React 進階課程"
+    }
+  ],
+  "languages": [
+    {
+      "name": "中文",
+      "level": "母語 / 流利"
+    },
+    {
+      "name": "英文",
+      "level": "BULATS B1"
+    }
+  ],
+  "other": {
+    "music": [
+      "烏克麗麗",
+      "吉他"
+    ],
+    "notes": [
+      "曾教導音樂演奏技巧",
+      "曾擔任獨奏與樂器演奏"
+    ]
+  }
+}

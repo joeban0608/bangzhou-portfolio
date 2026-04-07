@@ -1,3 +1,5 @@
+import resume from "@/joe/joe-resume.json";
+
 export type LinkItem = {
   label: string;
   value: string;
@@ -55,12 +57,60 @@ export type PortfolioContent = {
   contact: LinkItem[];
 };
 
+function formatPeriod(start?: string, end?: string) {
+  if (!start) {
+    return end ?? "未提供";
+  }
+
+  const formattedStart = start.replace("-", ".");
+  const formattedEnd =
+    end && end !== "至今" ? end.replace("-", ".") : end ?? "至今";
+
+  return `${formattedStart} - ${formattedEnd}`;
+}
+
+function createSlug(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9\u4e00-\u9fa5]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+const { basics, experience, projects } = resume;
+
+const featuredExperience = experience.slice(0, 3).map((item) => ({
+  period: formatPeriod(item.start, item.end),
+  title: item.role,
+  organization: item.company,
+  highlights: item.highlights.slice(0, 2),
+}));
+
+const featuredProjects = [
+  projects.find((item) => item.name.includes("SEO Flow")),
+  projects.find((item) => item.name.includes("家庭預約洗衣系統")),
+  projects.find((item) => item.name.includes("smart-brain-api")),
+]
+  .filter((item): item is (typeof projects)[number] => Boolean(item))
+  .map((item) => ({
+    slug: createSlug(item.name),
+    name: item.name,
+    summary: item.description,
+    role:
+      item.type === "公司內部 SaaS 平台"
+        ? "AI SaaS 平台開發、內容生成流程、部署與雲端整合"
+        : item.type === "side project"
+          ? "Side project 規劃、功能設計、整合實作"
+          : "前後端整合、功能實作、專案部署",
+    techStack: item.techStack.slice(0, 4),
+    href: "#contact",
+  }));
+
 export const portfolioContent: PortfolioContent = {
   siteMeta: {
-    name: "Hong Bangzhou",
-    title: "洪邦洲 | 軟體工程師作品集",
+    name: basics.name,
+    title: `${basics.name} | 前端 / 全端工程師作品集`,
     description:
-      "洪邦洲的軟體工程師個人作品集，聚焦前端工程、產品實作、技術選型與可維護的使用者體驗設計。",
+      "洪邦洲的個人作品集，整理前端與全端開發經驗，涵蓋 Next.js、React、TypeScript、Node.js、雲端部署與 AI SaaS 平台實作。",
     locale: "zh-Hant",
   },
   navigation: [
@@ -71,11 +121,11 @@ export const portfolioContent: PortfolioContent = {
     { label: "聯絡", href: "#contact" },
   ],
   hero: {
-    badge: "Software Engineer Portfolio",
-    headline: "打造能落地、可維護、而且有辨識度的數位產品。",
-    subheadline: "洪邦洲",
+    badge: "Frontend / Full-stack Engineer",
+    headline: "把前端體驗、系統整合與交付效率整成同一件事。",
+    subheadline: basics.name,
     description:
-      "專注於 Next.js、前端體驗與產品工程，重視介面敘事、系統化實作與長期可維護性。這裡整理了我的代表作品、技術能力與實作思路。",
+      "我有前端與全端開發經驗，熟悉 React、Next.js、TypeScript、Node.js 與雲端部署流程，做過產品需求分析、前後端整合、AI SaaS 平台開發與實際上線維運。",
     primaryCta: {
       label: "查看作品",
       value: "Projects",
@@ -89,108 +139,65 @@ export const portfolioContent: PortfolioContent = {
   },
   about: {
     paragraphs: [
-      "我是一名以產品實作為核心的軟體工程師，習慣從需求、資訊架構、互動細節到交付品質一路推進，而不只停留在單點功能完成。",
-      "我偏好使用現代前端技術建立清晰、可擴充的介面系統，並在效能、可讀性與維護成本之間做出務實取捨。",
-      "對我來說，好的工程不是堆砌技術名詞，而是把複雜度整理成團隊與使用者都能持續受益的成果。",
+      "我目前定位在前端與全端交界，能從介面實作一路處理 API 串接、資料流、部署與正式環境配置，不把問題只留在單一層。",
+      "過去的工作內容涵蓋 Next.js、React、Svelte、Node.js 與 GCP / AWS / Cloudflare 等雲端服務，也包含 OAuth 登入、SEO 架構、廣告與分析工具整合。",
+      "除了寫功能，我也習慣參與需求分析、跨部門溝通與新人協作，目標是把系統做成可以持續交付、持續擴充，而不是只完成當下版本。",
     ],
   },
   skills: [
     {
       category: "Frontend",
       items: [
-        "Next.js",
         "React",
+        "Next.js",
         "TypeScript",
+        "Svelte",
+        "Redux Toolkit",
         "Tailwind CSS",
-        "App Router",
-        "Responsive UI",
       ],
     },
     {
-      category: "Product Engineering",
+      category: "Backend & Data",
       items: [
-        "Design Systems",
-        "SEO Basics",
-        "Accessibility",
-        "Performance Tuning",
-        "Component Architecture",
+        "Node.js",
+        "Python",
+        "PostgreSQL",
+        "MySQL",
+        "GraphQL",
+        "Web Scraping",
       ],
     },
     {
-      category: "Tooling",
+      category: "Cloud & Delivery",
       items: [
-        "ESLint",
-        "Git",
-        "Vercel",
-        "CI/CD",
-        "Content Modeling",
+        "GCP",
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Cloudflare",
+        "SEO / Analytics",
       ],
     },
   ],
-  projects: [
-    {
-      slug: "portfolio-platform",
-      name: "個人品牌與作品集網站",
-      summary:
-        "以單頁敘事為核心，建立可快速理解個人定位、作品與經歷的展示站，兼顧視覺辨識度與維護便利性。",
-      role: "產品設計、前端架構、UI 實作",
-      techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Metadata"],
-      href: "#contact",
-    },
-    {
-      slug: "ui-system",
-      name: "可擴充的介面元件與內容模型",
-      summary:
-        "將首頁內容拆成結構化資料與區塊元件，為後續新增雙語、作品詳情頁或 CMS 串接保留空間。",
-      role: "資料建模、元件拆分、前端規劃",
-      techStack: ["TypeScript", "Content Modeling", "Component Design"],
-      href: "#skills",
-    },
-    {
-      slug: "cosmic-experience",
-      name: "宇宙主題的品牌視覺實驗",
-      summary:
-        "以深色星際氛圍為主軸，結合層次背景、柔光與資訊卡片排版，讓內容傳遞與視覺敘事同時成立。",
-      role: "視覺方向、前端動畫、樣式系統",
-      techStack: ["CSS", "Tailwind CSS", "Motion", "Visual Direction"],
-      href: "#about",
-    },
-  ],
-  experience: [
-    {
-      period: "近期",
-      title: "軟體工程師",
-      organization: "個人與產品型專案",
-      highlights: [
-        "以需求導向規劃前端架構與實作策略，縮短從想法到可展示成果的距離。",
-        "重視內容結構、頁面敘事與技術選型，讓產品具備可持續擴充的基礎。",
-      ],
-    },
-    {
-      period: "持續累積中",
-      title: "前端與產品工程實作者",
-      organization: "Web 專案開發",
-      highlights: [
-        "處理過 UI 組件化、RWD、站點內容整理與部署流程等實務需求。",
-        "偏好建立乾淨的檔案結構與可讀性高的程式碼，降低後續改版成本。",
-      ],
-    },
-  ],
+  projects: featuredProjects,
+  experience: featuredExperience,
   contact: [
     {
       label: "Email",
-      value: "hello@bangzhou.dev",
-      href: "mailto:hello@bangzhou.dev",
+      value: basics.email,
+      href: `mailto:${basics.email}`,
     },
     {
-      label: "GitHub",
-      value: "github.com/bangzhou",
-      href: "https://github.com/bangzhou",
+      label: "Phone",
+      value: basics.phone,
+      href: `tel:${basics.phone.replace(/-/g, "")}`,
     },
     {
-      label: "LinkedIn",
-      value: "linkedin.com/in/bangzhou",
-      href: "https://www.linkedin.com/in/bangzhou",
+      label: "Location",
+      value: `${basics.location.city}${basics.location.district}`,
+      href: `https://www.google.com/maps/search/${encodeURIComponent(
+        `${basics.location.city}${basics.location.district}`
+      )}`,
     },
   ],
 };
