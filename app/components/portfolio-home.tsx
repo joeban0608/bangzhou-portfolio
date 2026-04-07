@@ -75,19 +75,19 @@ export function PortfolioHome() {
       </header>
 
       <main id="top" className="mx-auto flex w-full max-w-6xl flex-col gap-24 px-6 py-10 sm:px-8 sm:py-14">
-        <section className="grid gap-10 pb-6 pt-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-14 lg:pt-14">
-          <div className="space-y-8">
+        <section className="grid gap-10 pb-6 pt-8 lg:grid-cols-[minmax(0,1.18fr)_minmax(320px,0.82fr)] lg:items-start lg:gap-12 lg:pt-12">
+          <div className="space-y-7 lg:max-w-[44rem] lg:pt-6">
             <div className="inline-flex rounded-full border border-[var(--color-border-strong)] bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.3em] text-[var(--color-accent-soft)]">
               {hero.badge}
             </div>
-            <div className="space-y-5">
+            <div className="space-y-4">
               <p className="font-display text-sm uppercase tracking-[0.4em] text-[var(--color-accent-soft)]">
                 {hero.subheadline}
               </p>
-              <h1 className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
+              <h1 className="max-w-3xl text-5xl font-semibold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-[5.25rem]">
                 {hero.headline}
               </h1>
-              <p className="max-w-2xl text-lg leading-8 text-[var(--color-text-muted)] sm:text-xl">
+              <p className="max-w-xl text-lg leading-8 text-[var(--color-text-muted)] sm:text-xl">
                 {hero.description}
               </p>
             </div>
@@ -101,16 +101,16 @@ export function PortfolioHome() {
             </div>
           </div>
 
-          <div className="panel-card p-6 sm:p-8">
+          <div className="panel-card mx-auto w-full max-w-[26rem] p-5 sm:p-6 lg:mx-0">
             <div className="space-y-6">
               <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]">
-                <div className="relative aspect-[4/5]">
+                <div className="relative aspect-[5/6] max-h-[30rem]">
                   <Image
                     src={joeAvatar}
                     alt="洪邦洲個人頭像"
                     placeholder="blur"
                     priority
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
                 <div className="flex items-center justify-between border-t border-white/10 px-5 py-4">
