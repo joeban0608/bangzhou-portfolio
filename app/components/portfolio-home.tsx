@@ -60,9 +60,9 @@ export function PortfolioHome() {
   const remainingExperience = experience.slice(3);
 
   return (
-    <div className="relative isolate overflow-hidden">
+    <div className="relative isolate overflow-x-hidden">
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[36rem] bg-[radial-gradient(circle_at_top,_rgba(123,92,255,0.22),_transparent_42%),radial-gradient(circle_at_20%_20%,_rgba(96,165,250,0.24),_transparent_28%),linear-gradient(180deg,_rgba(5,10,28,0.92)_0%,_rgba(2,6,23,0.22)_48%,_transparent_100%)]" />
-      <header className="sticky top-0 z-20 border-b border-white/10 bg-[rgba(3,7,18,0.7)] backdrop-blur-xl">
+      <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[rgba(3,7,18,0.7)] backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
           <Link
             href="#top"
@@ -104,7 +104,7 @@ export function PortfolioHome() {
 
       <main
         id="top"
-        className="mx-auto flex w-full max-w-6xl flex-col gap-24 px-6 sm:px-8"
+        className="mx-auto flex w-full max-w-6xl flex-col gap-24 px-6 pt-24 sm:px-8 sm:pt-28"
       >
         <section className="grid gap-10 pb-6 pt-8 lg:grid-cols-[minmax(0,1.18fr)_minmax(320px,0.82fr)] lg:items-start lg:gap-12 lg:pt-12">
           <div className="space-y-7 lg:max-w-[44rem] lg:pt-6">
