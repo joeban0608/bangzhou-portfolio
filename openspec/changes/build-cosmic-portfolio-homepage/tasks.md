@@ -26,3 +26,9 @@
 - [x] 4.2 執行 `npm run build` 並確認首頁可靜態建置
 - [x] 4.3 補上正式個人頭像與作品預覽素材
 - [ ] 4.4 補上社群分享圖與正式 favicon 等站點品牌素材
+
+## 5. 首頁資訊層級優化
+
+- [x] 5.1 將首頁 Projects 區塊調整為 3 個精選作品，並固定為 SEO Flow、crown-clothing、smart-brain-api
+- [x] 5.2 新增 `/projects` route 承接完整作品列表，並讓首頁「更多作品」導向該頁
+- [x] 5.3 將首頁 Experience 區塊改為 timeline 摘要，預設顯示 3 筆並支援同頁展開更多

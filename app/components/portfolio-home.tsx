@@ -1,35 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ProjectCard } from "@/app/components/project-card";
+import { SectionHeading } from "@/app/components/section-heading";
 import { portfolioContent } from "@/app/lib/portfolio-content";
 import joeAvatar from "@/joe/joe-avatar.jpg";
-
-function SectionHeading({
-  eyebrow,
-  title,
-  description,
-}: {
-  eyebrow: string;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="max-w-2xl space-y-4">
-      <p className="text-xs font-medium uppercase tracking-[0.32em] text-[var(--color-accent-soft)]">
-        {eyebrow}
-      </p>
-      <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-        {title}
-      </h2>
-      <p className="text-base leading-8 text-[var(--color-text-muted)] sm:text-lg">
-        {description}
-      </p>
-    </div>
-  );
-}
 
 export function PortfolioHome() {
   const { navigation, hero, about, skills, projects, experience, contact } =
     portfolioContent;
+  const primaryExperience = experience.slice(0, 3);
+  const remainingExperience = experience.slice(3);
 
   return (
     <div className="relative isolate overflow-hidden">
@@ -191,52 +171,17 @@ export function PortfolioHome() {
           <SectionHeading
             eyebrow="Projects"
             title="作品展示聚焦於我如何把抽象概念轉成可交付成果。"
-            description="這裡先以代表性主題呈現第一版內容，之後可以直接擴充為更完整的作品列表或獨立詳情頁。"
+            description="首頁先聚焦 3 個代表作品，其他專案整理到獨立作品集頁，讓首頁敘事更集中。"
           />
           <div className="grid gap-5">
             {projects.map((project, index) => (
-              <article
-                key={project.slug}
-                className="panel-card grid gap-6 overflow-hidden p-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:p-8"
-              >
-                <div className="space-y-4">
-                  {project.image ? (
-                    <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/20">
-                      <Image
-                        src={project.image.src}
-                        alt={project.image.alt}
-                        className="h-auto w-full object-cover"
-                      />
-                    </div>
-                  ) : null}
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent-soft)]">
-                      Project {String(index + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white">{project.name}</h3>
-                  <p className="text-base leading-8 text-[var(--color-text-muted)]">
-                    {project.summary}
-                  </p>
-                  <p className="text-sm text-white/80">{project.role}</p>
-                </div>
-                <div className="flex h-full flex-col justify-between gap-6 rounded-[1.5rem] border border-white/8 bg-white/4 p-5">
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech) => (
-                      <span key={tech} className="chip">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <Link
-                    href={project.href}
-                    className="inline-flex w-fit items-center text-sm text-[var(--color-accent-soft)] transition hover:text-white"
-                  >
-                    前往相關區塊
-                  </Link>
-                </div>
-              </article>
+              <ProjectCard key={project.slug} project={project} index={index} />
             ))}
+          </div>
+          <div className="flex justify-start">
+            <Link href="/projects" className="button-secondary">
+              更多作品
+            </Link>
           </div>
         </section>
 
@@ -244,14 +189,15 @@ export function PortfolioHome() {
           <SectionHeading
             eyebrow="Experience"
             title="經歷的重點不是頭銜，而是能持續產出穩定成果。"
-            description="目前先以精簡時間軸呈現工作與實作方向，後續可替換為實際公司、角色與量化成果。"
+            description="這裡改成 timeline 語感的排列方式，首頁先顯示 3 段近期經歷，其餘內容在原頁面直接展開。"
           />
-          <div className="space-y-4">
-            {experience.map((item) => (
+          <div className="relative space-y-5 before:absolute before:bottom-6 before:left-[1.05rem] before:top-6 before:w-px before:bg-[linear-gradient(180deg,rgba(125,211,252,0.55),rgba(167,139,250,0.08))] sm:before:left-[1.3rem]">
+            {primaryExperience.map((item) => (
               <article
                 key={`${item.period}-${item.title}`}
-                className="panel-card grid gap-6 p-6 lg:grid-cols-[0.3fr_1fr]"
+                className="panel-card relative grid gap-6 p-6 pl-12 lg:grid-cols-[0.35fr_1fr] lg:pl-16"
               >
+                <div className="absolute left-3 top-7 h-4 w-4 rounded-full border border-[var(--color-border-strong)] bg-[var(--background)] shadow-[0_0_0_6px_rgba(125,211,252,0.08)] sm:left-[1.05rem]" />
                 <div className="space-y-2">
                   <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent-soft)]">
                     {item.period}
@@ -275,6 +221,46 @@ export function PortfolioHome() {
                 </div>
               </article>
             ))}
+          </div>
+          <details className="group">
+            <summary className="button-secondary w-fit cursor-pointer list-none marker:content-none">
+              <span className="group-open:hidden">更多經歷</span>
+              <span className="hidden group-open:inline">收起經歷</span>
+            </summary>
+            <div className="relative mt-5 space-y-5 before:absolute before:bottom-6 before:left-[1.05rem] before:top-6 before:w-px before:bg-[linear-gradient(180deg,rgba(125,211,252,0.38),rgba(167,139,250,0.08))] sm:before:left-[1.3rem]">
+              {remainingExperience.map((item) => (
+                <article
+                  key={`${item.period}-${item.title}`}
+                  className="panel-card relative grid gap-6 p-6 pl-12 lg:grid-cols-[0.35fr_1fr] lg:pl-16"
+                >
+                  <div className="absolute left-3 top-7 h-4 w-4 rounded-full border border-[var(--color-border-strong)] bg-[var(--background)] shadow-[0_0_0_6px_rgba(125,211,252,0.08)] sm:left-[1.05rem]" />
+                  <div className="space-y-2">
+                    <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent-soft)]">
+                      {item.period}
+                    </p>
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                      <p className="text-sm text-[var(--color-text-muted)]">
+                        {item.organization}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="grid gap-3">
+                    {item.highlights.map((highlight) => (
+                      <p
+                        key={highlight}
+                        className="rounded-2xl border border-white/8 bg-white/4 px-4 py-3 text-base leading-7 text-[var(--color-text-muted)]"
+                      >
+                        {highlight}
+                      </p>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </details>
+          <div className="rounded-[1.5rem] border border-white/8 bg-white/4 px-5 py-4 text-sm leading-7 text-[var(--color-text-muted)]">
+            首頁保留 timeline 摘要，詳細專案與完整成果可再往下延伸為 case study。
           </div>
         </section>
 

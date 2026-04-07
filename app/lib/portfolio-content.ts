@@ -34,6 +34,8 @@ export type ProjectItem = {
   role: string;
   techStack: string[];
   href: string;
+  period?: string;
+  highlights: string[];
   image?: {
     src: StaticImageData;
     alt: string;
@@ -64,6 +66,7 @@ export type PortfolioContent = {
   };
   skills: SkillGroup[];
   projects: ProjectItem[];
+  allProjects: ProjectItem[];
   experience: ExperienceItem[];
   contact: LinkItem[];
 };
@@ -98,38 +101,56 @@ const projectImageByName: Record<string, StaticImageData> = {
   "SaaS 平台 — AI 自動建立網站 (SEO Flow)": seoFlowAvatar,
 };
 
-const featuredExperience = experience.slice(0, 5).map((item) => ({
+function createProjectRole(type: string) {
+  if (type === "公司內部 SaaS 平台") {
+    return "AI SaaS 平台開發、內容生成流程、部署與雲端整合";
+  }
+
+  if (type === "side project") {
+    return "Side project 規劃、功能設計、整合實作";
+  }
+
+  if (type === "個人作品集") {
+    return "個人品牌定位、內容編排與前端呈現";
+  }
+
+  return "前後端整合、功能實作、專案部署";
+}
+
+const mappedExperience = experience.map((item) => ({
   period: formatPeriod(item.start, item.end),
   title: item.role,
   organization: item.company,
   highlights: item.highlights.slice(0, 2),
 }));
 
+const mappedProjects: ProjectItem[] = projects.map((item) => ({
+  slug: createSlug(item.name),
+  name: item.name,
+  summary: item.description,
+  role: createProjectRole(item.type),
+  techStack: item.techStack.slice(0, 5),
+  href: item.links?.github ?? "#contact",
+  period: formatPeriod(item.start, item.end),
+  highlights: item.highlights.slice(0, 4),
+  image: projectImageByName[item.name]
+    ? {
+        src: projectImageByName[item.name],
+        alt: `${item.name} 專案畫面`,
+      }
+    : undefined,
+}));
+
 const featuredProjects = [
-  projects.find((item) => item.name.includes("SEO Flow")),
-  projects.find((item) => item.name.includes("家庭預約洗衣系統")),
-  projects.find((item) => item.name.includes("smart-brain-api")),
-]
-  .filter((item): item is (typeof projects)[number] => Boolean(item))
-  .map((item) => ({
-    slug: createSlug(item.name),
-    name: item.name,
-    summary: item.description,
-    role:
-      item.type === "公司內部 SaaS 平台"
-        ? "AI SaaS 平台開發、內容生成流程、部署與雲端整合"
-        : item.type === "side project"
-          ? "Side project 規劃、功能設計、整合實作"
-          : "前後端整合、功能實作、專案部署",
-    techStack: item.techStack.slice(0, 4),
-    href: "#contact",
-    image: projectImageByName[item.name]
-      ? {
-          src: projectImageByName[item.name],
-          alt: `${item.name} 專案畫面`,
-        }
-      : undefined,
-  }));
+  mappedProjects.find((item) => item.name.includes("SEO Flow")),
+  mappedProjects.find((item) => item.name.includes("crown-clothing")),
+  mappedProjects.find((item) => item.name.includes("smart-brain-api")),
+].filter((item): item is ProjectItem => item !== undefined);
+
+const allProjects = mappedProjects.map((item) => ({
+  ...item,
+  href: `/projects#${item.slug}`,
+}));
 
 export const portfolioContent: PortfolioContent = {
   siteMeta: {
@@ -205,8 +226,12 @@ export const portfolioContent: PortfolioContent = {
       ],
     },
   ],
-  projects: featuredProjects,
-  experience: featuredExperience,
+  projects: featuredProjects.map((item) => ({
+    ...item,
+    href: `/projects#${item.slug}`,
+  })),
+  allProjects,
+  experience: mappedExperience,
   contact: [
     {
       label: "Email",

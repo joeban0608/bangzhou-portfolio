@@ -57,6 +57,31 @@ The system SHALL render the homepage using a dark, space-inspired visual languag
 - **WHEN** the visitor reaches the hero area or contact area
 - **THEN** primary actions are visually distinct from secondary actions
 
+### Requirement: Homepage SHALL summarize projects and provide a dedicated portfolio route
+The system SHALL show exactly three featured projects on the homepage and SHALL provide a dedicated `/projects` route for the complete project list.
+
+#### Scenario: Homepage project summary
+- **WHEN** a visitor scans the Projects section on `/`
+- **THEN** the page shows three featured projects in the intended order
+- **AND** a visible action links to the complete portfolio page
+
+#### Scenario: Visitor opens the portfolio page
+- **WHEN** a visitor requests `/projects`
+- **THEN** the system renders a full project listing page using the same content source as the homepage
+- **AND** project anchors support linking to specific entries from the homepage
+
+### Requirement: Homepage SHALL summarize experience with expandable detail
+The system SHALL present a condensed experience timeline on the homepage that shows the first three entries by default and allows visitors to expand the remaining entries inline.
+
+#### Scenario: Initial experience scan
+- **WHEN** a visitor reaches the Experience section on `/`
+- **THEN** the page shows three recent experience entries in timeline form
+- **AND** the section provides a control for revealing additional entries
+
+#### Scenario: Visitor expands more experience
+- **WHEN** the visitor activates the expand control
+- **THEN** the remaining experience entries are revealed on the same page without navigation
+
 ### Requirement: Build configuration SHALL avoid incorrect Turbopack root detection
 The system SHALL configure Turbopack to use the current project directory as the application root when running Next.js in this repository layout.
 
