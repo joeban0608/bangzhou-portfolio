@@ -141,15 +141,15 @@ function createProjectRole(type: string) {
 }
 
 function createProjectHref(project: SourceProject) {
-  if ("links" in project && project.links?.github) {
-    return project.links.github;
+  if ("link" in project && typeof project.link === "string") {
+    return project.link;
   }
 
   return "/#contact";
 }
 
 function createProjectLinkLabel(project: SourceProject) {
-  if ("links" in project && project.links?.github) {
+  if ("link" in project && typeof project.link === "string") {
     return "查看專案連結";
   }
 
@@ -345,8 +345,6 @@ export const portfolioContent: PortfolioContent = {
   ],
   projects: featuredProjects.map((item) => ({
     ...item,
-    href: `/projects#${item.slug}`,
-    linkLabel: "查看這個作品",
   })),
   allProjects,
   experience: mappedExperience,

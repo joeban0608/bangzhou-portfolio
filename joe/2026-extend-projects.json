@@ -42,7 +42,8 @@
       "展示真實 OAuth flow（不是 demo login）",
       "展示 session + database + authorization 三者整合能力",
       "展示 Next.js App Router + server action 架構理解"
-    ]
+    ],
+    "link": "https://dev-snippet-deiz4ubj4-joebans-projects.vercel.app/"
   },
   {
     "name": "Super Clinic",
@@ -92,6 +93,7 @@
       "展示產品思維（不只是寫 code）",
       "展示 UX + AI integration 能力",
       "展示快速 prototype 與 demo 能力"
-    ]
+    ],
+    "link": "https://super-clinic-tan.vercel.app/"
   }
 ]

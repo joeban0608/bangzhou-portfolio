@@ -90,6 +90,19 @@ The system SHALL allow homepage featured-project ordering and `/projects` full-l
 - **WHEN** a project item does not yet define the new split ordering fields
 - **THEN** the system falls back to the legacy ordering field or source order instead of failing rendering
 
+### Requirement: Project CTA links SHALL use a normalized single-link field
+The system SHALL read project outbound destinations from a single `link` field in project data, and SHALL use that same destination for homepage featured cards and full portfolio cards.
+
+#### Scenario: Project defines a link
+- **WHEN** a project item includes a `link` value
+- **THEN** the project card CTA opens that destination
+- **AND** the homepage featured version of the same project uses the same outbound URL
+
+#### Scenario: Project does not define a link
+- **WHEN** a project item omits `link`
+- **THEN** the project card falls back to the contact destination
+- **AND** the CTA label indicates contacting for more information
+
 ### Requirement: Homepage SHALL summarize experience with expandable detail
 The system SHALL present a condensed experience timeline on the homepage that shows the first three entries by default and allows visitors to expand the remaining entries inline.
 
