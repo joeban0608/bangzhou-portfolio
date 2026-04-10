@@ -294,7 +294,7 @@ export const portfolioContent: PortfolioContent = {
   ],
   hero: {
     badge: "Frontend / Full-stack Engineer",
-    headline: "把前端體驗、系統整合與交付效率整成同一件事。",
+    headline: "把前端體驗、系統整合與交付效率整成同一件事",
     subheadline: basics.name,
     description:
       "我有前端與全端開發經驗，熟悉 React、Next.js、TypeScript、Node.js 與雲端部署流程，做過產品需求分析、前後端整合、AI SaaS 平台開發與實際上線維運。",
