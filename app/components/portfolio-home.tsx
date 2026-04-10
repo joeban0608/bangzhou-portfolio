@@ -104,7 +104,7 @@ export function PortfolioHome() {
 
       <main
         id="top"
-        className="mx-auto flex w-full max-w-6xl flex-col gap-24 px-6 pt-24 sm:px-8 sm:pt-28"
+        className="mx-auto flex w-full max-w-6xl flex-col gap-24 px-6 pt-12 sm:px-8 sm:pt-14"
       >
         <section className="grid gap-10 pb-6 pt-8 lg:grid-cols-[minmax(0,1.18fr)_minmax(320px,0.82fr)] lg:items-start lg:gap-12 lg:pt-12">
           <div className="space-y-7 lg:max-w-[44rem] lg:pt-6">
