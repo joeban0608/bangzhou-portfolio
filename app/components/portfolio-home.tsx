@@ -347,9 +347,9 @@ export function PortfolioHome() {
                 <h2 className="max-w-xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                   如果你正在找能一起把產品做好的人，可以直接聯絡我。
                 </h2>
-                <p className="max-w-2xl text-base leading-8 text-[var(--color-text-muted)] sm:text-lg">
+                {/* <p className="max-w-2xl text-base leading-8 text-[var(--color-text-muted)] sm:text-lg">
                   第一版先保留最直接的聯絡入口。未來若需要，也可以延伸成表單、作品詳情頁與更多技術文章內容。
-                </p>
+                </p> */}
                 <div className="space-y-3 pt-2">
                   <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent-soft)]">
                     Media

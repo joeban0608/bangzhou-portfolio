@@ -15,9 +15,9 @@ export function SectionHeading({
       <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
         {title}
       </h2>
-      <p className="text-base leading-8 text-[var(--color-text-muted)] sm:text-lg">
+      {/* <p className="text-base leading-8 text-[var(--color-text-muted)] sm:text-lg">
         {description}
-      </p>
+      </p> */}
     </div>
   );
 }
